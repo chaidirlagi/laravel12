@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Periksa;
 use App\Models\DetailPeriksa;
 use App\Models\Obat;
+use App\Http\Controllers\DokterController;
+use App\Http\Controllers\PasienController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -50,3 +52,16 @@ Route::get('/pasien/riwayat', function () {
     $periksas = Periksa::all();
     return view('pasien.riwayat', compact('Detailperiksas', 'periksas'));
 });
+
+Route::get('/dokter', [DokterController::class, 'index'])->name('dokter.dashboard');
+Route::get('/dokter/obat', [DokterController::class, 'showObat'])->name('dokter.obat');
+Route::post('/dokter/obat', [DokterController::class, 'storeObat'])->name('dokter.obatStore');
+Route::get('/dokter/obat/edit/{id}', [DokterController::class, 'editObat'])->name('dokter.obatEdit');
+Route::put('/dokter/obat/update/{id}', [DokterController::class, 'updateObat'])->name('dokter.obatUpdate');
+Route::delete('/dokter/obat/delete/{id}', [DokterController::class, 'destroyObat'])->name('dokter.obatDelete');
+
+//pasien
+Route::get('/pasien', [PasienController::class, 'dashboardPasien'])->name('pasien.dashboard');
+Route::get('/pasien/riwayat', [PasienController::class, 'showPeriksas'])->name('pasien.riwayat');
+Route::get('/pasien/periksa', [PasienController::class, 'createPeriksa'])->name('pasien.periksa');
+Route::post('/pasien/periksa', [PasienController::class, 'storePeriksa'])->name('pasien.periksa.store');
