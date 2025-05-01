@@ -6,6 +6,7 @@ use App\Models\Periksa;
 use App\Models\User;
 use App\Models\DetailPeriksa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PasienController extends Controller
 {
@@ -18,7 +19,8 @@ class PasienController extends Controller
     public function showPeriksas()
     {
         $Detailperiksas = DetailPeriksa::all(); 
-        $periksas = Periksa::all();
+        
+        $periksas = Periksa::where('id_pasien', Auth::user()->id)->get();
        return view('pasien.riwayat', compact('Detailperiksas', 'periksas'));
     }
 
@@ -41,7 +43,7 @@ class PasienController extends Controller
 
         // Simpan data pemeriksaan
         Periksa::create([
-            'id_pasien' => 1,
+            'id_pasien' => Auth::user()->id,
             'id_dokter' => $request->id_dokter,
             'tgl_periksa' => $request->tgl_periksa,
             'biaya_periksa' => 0, // Default, bisa diubah oleh dokter nanti
