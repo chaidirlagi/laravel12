@@ -1,330 +1,443 @@
 <!DOCTYPE html>
- <html lang="id">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Poliklinik Sehat Online - Berobat Mudah dari Rumah</title>
-     <!-- Bootstrap CSS -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-     <!-- Font Awesome untuk ikon -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-     <!-- Google Fonts -->
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-     <style>
-         body {
-            font-family: 'Poppins', sans-serif;
-             background-color: #f8f9fa;
-             scroll-behavior: smooth;
-         }
-         /* Navbar Styling */
-         .navbar {
-             background-color: #ffffff;
-             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-             padding: 15px 0;
-         }
-         .navbar-brand {
-             font-weight: 700;
-             font-size: 1.8rem;
-             color: #007bff !important;
-         }
-         .nav-link {
-             color: #333 !important;
-             font-weight: 500;
-             margin-left: 20px;
-             transition: color 0.3s ease;
-         }
-         .nav-link:hover {
-             color: #007bff !important;
-         }
-         .btn-login {
-             background-color: #007bff;
-             color: white;
-             border-radius: 20px;
-             padding: 8px 20px;
-             font-weight: 500;
-             transition: background-color 0.3s ease;
-         }
-         .btn-login:hover {
-             background-color: #0056b3;
-             color: white;
-         }
-         /* Hero Section */
-         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-             background-position: center;
-             color: white;
-             padding: 120px 0;
-             text-align: center;
-             position: relative;
-             overflow: hidden;
-         }
-         .hero-section h1 {
-            font-size: 3.5rem;
-             font-weight: 700;
-             animation: fadeInDown 1s ease;
-         }
-         .hero-section p {
-            font-size: 1.3rem;
-             margin-bottom: 30px;
-             animation: fadeInUp 1s ease 0.3s;
-             animation-fill-mode: both;
-         }
-         .btn-primary {
-             background-color: #007bff;
-             border: none;
-             padding: 12px 35px;
-             font-size: 1.2rem;
-             border-radius: 25px;
-             transition: transform 0.3s ease, background-color 0.3s ease;
-         }
-         .btn-primary:hover {
-             background-color: #0056b3;
-             transform: translateY(-3px);
-         }
-         /* Features Section */
-         .features-section {
-            padding: 80px 0;
-             background-color: #fff;
-         }
-         .feature-card {
-             text-align: center;
-             padding: 30px;
-             border-radius: 15px;
-             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-             margin-bottom: 30px;
-             transition: transform 0.3s ease;
-         }
-         .feature-card:hover {
-             transform: translateY(-10px);
-         }
-         .feature-card i {
-             color: #007bff;
-             margin-bottom: 20px;
-         }
-         .feature-card h4 {
-             font-weight: 600;
-             color: #333;
-         }
-         /* Testimonials Section */
-         .testimonials-section {
-            padding: 80px 0;
-             background-color: #f8f9fa;
-         }
-         .testimonial-card {
-             background: white;
-             padding: 25px;
-             border-radius: 15px;
-             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-             margin-bottom: 30px;
-             transition: transform 0.3s ease;
-         }
-         .testimonial-card:hover {
-             transform: translateY(-10px);
-         }
-         .testimonial-card p {
-             font-style: italic;
-             color: #555;
-         }
-         .testimonial-card h5 {
-             font-weight: 600;
-             color: #007bff;
-         }
-         /* Contact Section */
-         .contact-section {
-            padding: 80px 0;
-             background-color: #fff;
-         }
-         .contact-section .form-control {
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poliklinik Sehat Online - Berobat Mudah dari Rumah</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color:rgb(29, 42, 63);
+            --primary-dark:rgb(32, 66, 255);
+            --secondary-color:rgb(212, 96, 96);
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --gradient-blue: linear-gradient(135deg,rgb(0, 56, 140) 0%,rgb(22, 22, 255) 100%);
+            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 6px 0;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+            margin-left: 15px;
+            margin-right: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 10px 20px !important;
+            border-radius: 25px;
+            background: var(--gradient-blue);
+            color: white !important;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+            background: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--gradient-blue);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+            font-weight: 700;
             margin-bottom: 20px;
-             border-radius: 10px;
-             padding: 12px;
-             border: 1px solid #ced4da;
-             transition: border-color 0.3s ease;
-         }
-         .contact-section .form-control:focus {
-             border-color: #007bff;
-             box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-         }
-         /* Footer */
-         footer {
-             background-color: #343a40;
-             color: white;
-             padding: 30px 0;
-             text-align: center;
-         }
-         footer p {
-             margin: 0;
-             font-size: 0.9rem;
-         }
-         /* Animations */
-         @keyframes fadeInDown {
-             from {
-                 opacity: 0;
-                 transform: translateY(-20px);
-             }
-             to {
-                 opacity: 1;
-                 transform: translateY(0);
-             }
-         }
-         @keyframes fadeInUp {
-             from {
-                 opacity: 0;
-                 transform: translateY(20px);
-             }
-             to {
-                 opacity: 1;
-                 transform: translateY(0);
-             }
-         }
-         /* Responsive Design */
-         @media (max-width: 768px) {
-             .hero-section h1 {
+            line-height: 1.2;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .btn-hero {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-hero-primary {
+            background: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--white);
+        }
+
+        .btn-hero-primary:hover {
+            background: transparent;
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-hero-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .btn-hero-outline:hover {
+            background: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Access Cards Section */
+        .access-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .access-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .access-card h4 {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .access-card p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.7;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .btn-access {
+            background: var(--gradient-blue);
+            border: none;
+            color: var(--white);
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-access:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+            transform: translateY(-2px);
+            text-decoration: none;
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-light);
+            margin-bottom: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            height: 100%;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .testimonial-card h5 {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+            padding: 50px 0 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-blue);
+            border-radius: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section h1 {
                 font-size: 2.5rem;
-             }
-             .hero-section p {
-                font-size: 1.1rem;
-             }
-             .navbar-brand {
-                 font-size: 1.5rem;
-             }
-             .nav-link {
-                 margin-left: 0;
-                 margin-top: 10px;
-             }
-         }
-     </style>
- </head>
- <body>
-     <!-- Navbar -->
-     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-         <div class="container">
-             <a class="navbar-brand" href="#">Poliklinik Sehat Online</a>
-             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
-             </button>
-             <div class="collapse navbar-collapse" id="navbarNav">
-                 <ul class="navbar-nav ms-auto">
-                     <li class="nav-item">
-                         <a class="nav-link" href="#home">Beranda</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#features">Fitur</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#testimonials">Testimoni</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#contact">Kontak</a>
-                     </li>
-                     <li class="nav-item">
-                         <a href="/login" class="btn btn-login">Login</a>
-                     </li>
-                 </ul>
-             </div>
-         </div>
-     </nav>
+            }
+            .hero-section .subtitle {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .btn-hero {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            .access-card {
+                margin-bottom: 30px;
+            }
+            .nav-link {
+                margin-left: 10px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section {
+                padding: 120px 0 80px;
+            }
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .access-section {
+                padding: 80px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">
+                            <i class="fas fa-user-shield me-2"></i>
+                            Login Administrator
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
  
-     <!-- Hero Section -->
-     <section class="hero-section" id="home">
-         <div class="container">
-             <h1>Poliklinik Sehat Online</h1>
-             <p>Berobat Mudah dari Rumah dengan Konsultasi Dokter Online</p>
-             <a href="#contact" class="btn btn-primary">Buat Janji Sekarang</a>
-         </div>
-     </section>
- 
-     <!-- Features Section -->
-     <section class="features-section" id="features">
-         <div class="container">
-             <h2 class="text-center mb-5">Mengapa Memilih Kami?</h2>
-             <div class="row">
-                 <div class="col-md-4">
-                     <div class="feature-card">
-                     <i class="fas fa-video fa-3x mb-3"></i>
-                         <h4>Konsultasi Online</h4>
-                         <p>Bertemu dokter profesional melalui video call dari kenyamanan rumah Anda.</p>
-                     </div>
-                 </div>
-                 <div class="col-md-4">
-                     <div class="feature-card">
-                     <i class="fas fa-calendar-check fa-3x mb-3"></i>
-                         <h4>Jadwal Fleksibel</h4>
-                         <p>Pilih waktu konsultasi yang sesuai dengan jadwal Anda.</p>
-                     </div>
-                 </div>
-                 <div class="col-md-4">
-                     <div class="feature-card">
-                     <i class="fas fa-prescription fa-3x mb-3"></i>
-                         <h4>Resep Digital</h4>
-                         <p>Dapatkan resep obat digital yang dikirim langsung ke ponsel Anda.</p>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </section>
- 
-     <!-- Testimonials Section -->
-     <section class="testimonials-section" id="testimonials">
-         <div class="container">
-             <h2 class="text-center mb-5">Apa Kata Pasien Kami</h2>
-             <div class="row">
-                 <div class="col-md-4">
-                     <div class="testimonial-card">
-                         <p>"Konsultasi online sangat membantu! Dokternya ramah dan prosesnya cepat."</p>
-                         <h5>- Ani, 34 tahun</h5>
-                     </div>
-                 </div>
-                 <div class="col-md-4">
-                     <div class="testimonial-card">
-                         <p>"Saya bisa buat janji kapan saja, sangat praktis untuk ibu bekerja seperti saya."</p>
-                         <h5>- Budi, 40 tahun</h5>
-                     </div>
-                 </div>
-                 <div class="col-md-4">
-                     <div class="testimonial-card">
-                         <p>"Resep digital langsung dikirim ke apotek, sangat efisien!"</p>
-                         <h5>- Citra, 28 tahun</h5>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </section>
- 
-     <!-- Contact Section -->
-     <section class="contact-section" id="contact">
-         <div class="container">
-             <h2 class="text-center mb-5">Hubungi Kami</h2>
-             <div class="row">
-                 <div class="col-md-6 mx-auto">
-                     <form action="/submit" method="POST">
-                         <div class="form-group">
-                             <input type="text" class="form-control" placeholder="Nama Lengkap" required>
-                         </div>
-                         <div class="form-group">
-                             <input type="email" class="form-control" placeholder="Email" required>
-                         </div>
-                         <div class="form-group">
-                             <input type="tel" class="form-control" placeholder="Nomor Telepon" required>
-                         </div>
-                         <div class="form-group">
-                             <textarea class="form-control" rows="4" placeholder="Pesan atau Pertanyaan" required></textarea>
-                         </div>
-                         <button type="submit" class="btn btn-primary w-100">Kirim</button>
-                     </form>
-                 </div>
-             </div>
-         </div>
-     </section>
- 
-     <!-- Footer -->
-     <footer>
-         <div class="container">
-         <p>© 2025 Poliklinik Sehat Online. Semua hak dilindungi.</p>
-         </div>
-     </footer>
- 
-     <!-- Bootstrap JS -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
- </body>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sistem Poliklinik Temu Janji</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access Section -->
+    <section class="access-section" id="access">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="access-card">
+                        <h4>Registrasi Pasien</h4>
+                        <p>Apabila Anda adalah seorang Pasien, silahkan Registrasi terlebih dahulu untuk melakukan pendaftaran sebagai Pasien!.</p>
+                        <a href="/register" class="btn-access">
+                            Daftar Sekarang
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="access-card">
+                        <h4>Login Dokter</h4>
+                        <p>Apabila Anda adalah seorang Dokter, silahkan Login terlebih dahulu untuk memulai melayani Pasien!.</p>
+                        <a href="/login" class="btn-access">
+                            Masuk Portal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="text-center section-title">Testimoni Pasien</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <p>Pelayanan yang sangat memuaskan! Dokternya profesional dan ramah. Sistem booking online memudahkan saya untuk membuat janji tanpa harus antri lama. Sangat direkomendasikan untuk semua orang.</p>
+                        <h5>
+                            <i class="fas fa-user-circle me-2"></i>
+                            Centa -Demak
+                        </h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <p>Platform yang sangat inovatif dan mudah digunakan. Konsultasi online sangat membantu terutama saat pandemi. Dokter-dokternya berpengalaman dan selalu memberikan solusi terbaik untuk keluhan kesehatan saya.</p>
+                        <h5>
+                            <i class="fas fa-user-circle me-2"></i>
+                            Reihan -Semarang
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Card hover animations - hanya untuk testimonial card
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

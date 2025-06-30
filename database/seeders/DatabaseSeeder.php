@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         //    ]);
 
         $this->call([
+            PoliSemua::class,
             UserSeeder::class,
             ObatSeeder::class,
             PeriksaSeeder::class
